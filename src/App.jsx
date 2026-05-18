@@ -4,7 +4,7 @@ import Lenis from '@studio-freight/lenis'
 
 import hero from './assets/hero.jpg'
 import box from './assets/box.jpg'
-import towel from './assets/towel.jpg'
+import towel from './assets/towel.JPG'
 import products from './assets/she-produtos-premium.jpg'
 import smoke from './assets/smoke.png'
 import logo from './assets/she-logo.png'
