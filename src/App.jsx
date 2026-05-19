@@ -11,8 +11,44 @@ import logo from './assets/she-logo.webp'
 
 export default function App() {
 
-  const [loading, setLoading] = useState(true)
-  const [openModal, setOpenModal] = useState(false)
+const [loading, setLoading] = useState(true)
+const [openModal, setOpenModal] = useState(false)
+
+const targetDate = new Date('2026-06-30T00:00:00')
+
+const calculateTimeLeft = () => {
+
+  const difference = targetDate - new Date()
+
+  let timeLeft = {}
+
+  if (difference > 0) {
+
+    timeLeft = {
+      dias: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      horas: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutos: Math.floor((difference / 1000 / 60) % 60),
+      segundos: Math.floor((difference / 1000) % 60),
+    }
+
+  }
+
+  return timeLeft
+
+}
+
+const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
+
+useEffect(() => {
+
+  const timer = setInterval(() => {
+    setTimeLeft(calculateTimeLeft())
+  }, 1000)
+
+  return () => clearInterval(timer)
+
+}, [])
+
 
   /* SMOOTH SCROLL */
   useEffect(() => {
@@ -330,12 +366,12 @@ export default function App() {
               {/* COUNTDOWN */}
               <div className="grid grid-cols-4 gap-2 sm:gap-4 max-w-md">
 
-                {[
-                  ['30', 'Dias'],
-                  ['12', 'Horas'],
-                  ['48', 'Min'],
-                  ['09', 'Seg'],
-                ].map((item, index) => (
+           {[
+              [timeLeft.dias || '00', 'Dias'],
+              [timeLeft.horas || '00', 'Horas'],
+              [timeLeft.minutos || '00', 'Min'],
+              [timeLeft.segundos || '00', 'Seg'],
+            ].map((item, index) => (
 
                   <motion.div
                     whileHover={{
