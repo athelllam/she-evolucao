@@ -14,11 +14,11 @@ export default function App() {
   const [loading, setLoading] = useState(true)
   const [openModal, setOpenModal] = useState(false)
 
-  /* APPLE SMOOTH SCROLL */
+  /* SMOOTH SCROLL */
   useEffect(() => {
 
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1,
       smoothWheel: true,
     })
 
@@ -36,7 +36,7 @@ export default function App() {
 
     const timer = setTimeout(() => {
       setLoading(false)
-    }, 2200)
+    }, 1700)
 
     return () => clearTimeout(timer)
 
@@ -45,53 +45,53 @@ export default function App() {
   return (
 
     <>
-      {/* PREMIUM LOADING */}
+      {/* LOADING */}
       <AnimatePresence>
 
         {loading && (
 
           <motion.div
             exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.7 }}
             className="fixed inset-0 z-[9999] bg-[#fffafc] flex items-center justify-center overflow-hidden"
           >
 
-            <div className="absolute w-[35rem] h-[35rem] bg-pink-300/30 blur-[180px] rounded-full"></div>
+            <div className="absolute w-[28rem] h-[28rem] bg-pink-300/20 blur-[80px] rounded-full"></div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.85 }}
+              initial={{ opacity: 0, scale: 0.92 }}
               animate={{
                 opacity: 1,
                 scale: 1,
               }}
               transition={{
-                duration: 1.4,
+                duration: 1,
               }}
               className="relative z-10 text-center"
             >
 
               <motion.img
                 animate={{
-                  y: [0, -10, 0],
+                  y: [0, -4, 0],
                 }}
                 transition={{
-                  duration: 3,
+                  duration: 4,
                   repeat: Infinity,
                   ease: 'easeInOut',
                 }}
                 src={logo}
                 alt="She"
-                className="w-60 md:w-80 mx-auto"
+                className="w-52 md:w-72 mx-auto"
               />
 
               <motion.div
                 initial={{ width: 0 }}
-                animate={{ width: 220 }}
+                animate={{ width: 180 }}
                 transition={{
-                  delay: 0.5,
-                  duration: 1.8,
+                  delay: 0.3,
+                  duration: 1.2,
                 }}
-                className="h-[3px] bg-gradient-to-r from-pink-400 to-fuchsia-400 rounded-full mx-auto mt-10"
+                className="h-[2px] bg-gradient-to-r from-pink-400 to-fuchsia-400 rounded-full mx-auto mt-8"
               />
 
             </motion.div>
@@ -105,30 +105,29 @@ export default function App() {
       {/* SITE */}
       <div className="bg-[#fffafc] overflow-x-hidden text-zinc-900 relative">
 
-        {/* PREMIUM PARTICLES */}
+        {/* PARTICLES */}
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
 
-          {Array.from({ length: 30 }).map((_, index) => (
+          {Array.from({ length: 8 }).map((_, index) => (
 
             <motion.div
               key={index}
               animate={{
-                y: [0, -140, 0],
-                x: [0, 40, 0],
-                opacity: [0.08, 0.25, 0.08],
-                scale: [1, 1.2, 1],
+                y: [0, -80, 0],
+                x: [0, 20, 0],
+                opacity: [0.05, 0.15, 0.05],
               }}
               transition={{
-                duration: 8 + index,
+                duration: 18 + index,
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
-              className="absolute rounded-full bg-pink-300/40 blur-2xl"
+              className="absolute rounded-full bg-pink-300/30 blur-xl"
               style={{
                 width: `${18 + index * 2}px`,
                 height: `${18 + index * 2}px`,
-                left: `${(index * 7) % 100}%`,
-                top: `${(index * 13) % 100}%`,
+                left: `${(index * 11) % 100}%`,
+                top: `${(index * 17) % 100}%`,
               }}
             />
 
@@ -136,76 +135,71 @@ export default function App() {
 
         </div>
 
-        {/* BACKGROUND GLOW */}
-        <div className="fixed top-[-10rem] left-[-10rem] w-[40rem] h-[40rem] bg-pink-300/20 blur-[180px] rounded-full pointer-events-none"></div>
+        {/* BACKGROUND */}
+        <div className="fixed top-[-10rem] left-[-10rem] w-[32rem] h-[32rem] bg-pink-300/15 blur-[80px] rounded-full pointer-events-none"></div>
 
-        <div className="fixed bottom-[-10rem] right-[-10rem] w-[40rem] h-[40rem] bg-rose-300/20 blur-[180px] rounded-full pointer-events-none"></div>
+        <div className="fixed bottom-[-10rem] right-[-10rem] w-[32rem] h-[32rem] bg-rose-300/15 blur-[80px] rounded-full pointer-events-none"></div>
 
-        {/* PREMIUM NAVBAR */}
+        {/* NAVBAR */}
         <motion.nav
-          initial={{ y: -100 }}
+          initial={{ y: -80 }}
           animate={{ y: 0 }}
-          transition={{ duration: 1 }}
-          className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[86%] max-w-6xl"
+          transition={{ duration: 0.8 }}
+          className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[88%] max-w-5xl"
         >
 
-          <motion.div
-            whileHover={{
-              scale: 1.01,
-            }}
-            className="bg-white/45 backdrop-blur-3xl backdrop-saturate-150 border border-white/30 rounded-[2rem] px-5 md:px-8 py-4 shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
-          >
+          <div className="bg-white/50 backdrop-blur-md border border-white/40 rounded-[2rem] px-5 md:px-8 py-4 shadow-[0_10px_40px_rgba(0,0,0,0.06)]">
 
             <div className="flex items-center justify-between">
 
               <motion.img
                 whileHover={{
-                  scale: 1.03,
+                  scale: 1.02,
                 }}
                 src={logo}
                 alt="She"
                 className="w-32 md:w-40 opacity-90"
               />
 
-<motion.button
-  whileHover={{
-    scale: 0.6,
-    y: -2,
-  }}
-  whileTap={{
-    scale: 0.5,
-  }}
-  onClick={() => setOpenModal(true)}
-  className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-10 py-5 rounded-2xl text-lg font-bold shadow-[0_20px_60px_rgba(236,72,153,0.35)]"
->
+              <motion.button
+                whileHover={{
+                  scale: 1.03,
+                  y: -1,
+                }}
+                whileTap={{
+                  scale: 0.97,
+                }}
+                onClick={() => setOpenModal(true)}
+                className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 md:px-8 py-3 rounded-2xl text-sm md:text-base font-bold shadow-[0_10px_30px_rgba(236,72,153,0.28)]"
+              >
 
-  Lista VIP
+                Lista VIP
 
-</motion.button>
+              </motion.button>
 
             </div>
 
-          </motion.div>
+          </div>
 
         </motion.nav>
 
         {/* HERO */}
-        <section className="relative min-h-[140vh] flex items-center px-5 md:px-10 py-32 overflow-hidden">
+        <section className="relative min-h-[120vh] flex items-center px-5 md:px-10 py-32 overflow-hidden">
 
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 md:gap-28 items-center relative z-10">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 md:gap-24 items-center relative z-10">
 
             {/* LEFT */}
             <motion.div
-              initial={{ opacity: 0, y: 100 }}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2 }}
+              transition={{ duration: 1 }}
               viewport={{ once: true }}
             >
 
               {/* BADGE */}
               <motion.div
-                whileHover={{ scale: 1.03 }}
-                className="inline-flex items-center gap-2 bg-white/55 backdrop-blur-3xl border border-pink-100 px-5 py-2 rounded-full shadow-xl mb-10"
+                whileHover={{ scale: 1.02 }}
+                className="inline-flex items-center gap-2 bg-white/55 backdrop-blur-md border border-pink-100 px-5 py-2 rounded-full shadow-lg mb-10"
               >
 
                 <div className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></div>
@@ -216,12 +210,12 @@ export default function App() {
 
               </motion.div>
 
-              {/* TEXT REVEAL */}
+              {/* TITLE */}
               <motion.h1
                 initial={{
                   opacity: 0,
-                  y: 80,
-                  filter: 'blur(14px)',
+                  y: 50,
+                  filter: 'blur(4px)',
                 }}
                 whileInView={{
                   opacity: 1,
@@ -229,7 +223,7 @@ export default function App() {
                   filter: 'blur(0px)',
                 }}
                 transition={{
-                  duration: 1.5,
+                  duration: 1.1,
                 }}
                 viewport={{ once: true }}
                 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tight mb-10"
@@ -244,12 +238,12 @@ export default function App() {
 
               </motion.h1>
 
-              {/* TEXT REVEAL SUBTITLE */}
+              {/* SUBTITLE */}
               <motion.p
                 initial={{
                   opacity: 0,
-                  y: 40,
-                  filter: 'blur(10px)',
+                  y: 20,
+                  filter: 'blur(3px)',
                 }}
                 whileInView={{
                   opacity: 1,
@@ -257,8 +251,8 @@ export default function App() {
                   filter: 'blur(0px)',
                 }}
                 transition={{
-                  delay: 0.25,
-                  duration: 1.4,
+                  delay: 0.2,
+                  duration: 1,
                 }}
                 viewport={{ once: true }}
                 className="text-lg md:text-2xl text-zinc-600 leading-relaxed max-w-xl mb-12"
@@ -271,27 +265,27 @@ export default function App() {
               </motion.p>
 
               {/* BUTTON */}
-<motion.button
-  whileHover={{
-    scale: 1.03,
-    y: -2,
-  }}
-  whileTap={{
-    scale: 0.97,
-  }}
-  onClick={() => setOpenModal(true)}
-  className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-10 py-5 rounded-2xl text-lg font-bold shadow-[0_20px_60px_rgba(236,72,153,0.35)]"
->
+              <motion.button
+                whileHover={{
+                  scale: 1.02,
+                  y: -1,
+                }}
+                whileTap={{
+                  scale: 0.98,
+                }}
+                onClick={() => setOpenModal(true)}
+                className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-10 py-5 rounded-2xl text-lg font-bold shadow-[0_10px_40px_rgba(236,72,153,0.28)] mb-14"
+              >
 
-  Entrar na Lista VIP
+                Entrar na Lista VIP
 
-</motion.button>
+              </motion.button>
 
               {/* WAITLIST */}
               <motion.div
                 initial={{
                   opacity: 0,
-                  y: 30,
+                  y: 20,
                 }}
                 whileInView={{
                   opacity: 1,
@@ -299,13 +293,13 @@ export default function App() {
                 }}
                 transition={{
                   delay: 0.4,
-                  duration: 1.2,
+                  duration: 0.8,
                 }}
                 viewport={{ once: true }}
                 className="mb-10"
               >
 
-                <div className="inline-flex items-center gap-3 bg-white/55 backdrop-blur-3xl border border-pink-100 px-5 py-4 rounded-2xl shadow-xl">
+                <div className="inline-flex items-center gap-3 bg-white/55 backdrop-blur-md border border-pink-100 px-5 py-4 rounded-2xl shadow-lg">
 
                   <div className="flex -space-x-3">
 
@@ -345,11 +339,11 @@ export default function App() {
 
                   <motion.div
                     whileHover={{
-                      y: -6,
-                      scale: 1.03,
+                      y: -3,
+                      scale: 1.02,
                     }}
                     key={index}
-                    className="w-full aspect-square rounded-[1.8rem] bg-white/55 backdrop-blur-3xl border border-pink-100 shadow-2xl flex flex-col items-center justify-center"
+                    className="w-full aspect-square rounded-[1.6rem] bg-white/55 backdrop-blur-md border border-pink-100 shadow-xl flex flex-col items-center justify-center"
                   >
 
                     <div className="text-2xl md:text-4xl font-black text-pink-600">
@@ -372,8 +366,8 @@ export default function App() {
             <motion.div
               initial={{
                 opacity: 0,
-                scale: 0.85,
-                y: 120,
+                scale: 0.92,
+                y: 60,
               }}
               whileInView={{
                 opacity: 1,
@@ -381,25 +375,22 @@ export default function App() {
                 y: 0,
               }}
               transition={{
-                duration: 1.6,
+                duration: 1.2,
               }}
               viewport={{ once: true }}
               className="relative"
             >
 
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-300 to-rose-300 blur-[140px] opacity-40 rounded-full"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-300 to-rose-300 blur-[60px] opacity-30 rounded-full"></div>
 
               <motion.div
                 animate={{
-                  y: [0, -14, 0],
+                  y: [0, -6, 0],
                 }}
                 transition={{
-                  duration: 6,
+                  duration: 8,
                   repeat: Infinity,
                   ease: 'easeInOut',
-                }}
-                whileHover={{
-                  scale: 1.01,
                 }}
                 className="relative z-10"
               >
@@ -407,7 +398,8 @@ export default function App() {
                 <img
                   src={hero}
                   alt="She"
-                  className="rounded-[2.8rem] md:rounded-[3.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.18)] w-full h-[520px] md:h-[820px] object-cover"
+                  loading="lazy"
+                  className="rounded-[2.5rem] md:rounded-[3rem] shadow-[0_20px_60px_rgba(0,0,0,0.14)] w-full h-[520px] md:h-[760px] object-cover"
                 />
 
               </motion.div>
@@ -418,14 +410,14 @@ export default function App() {
 
         </section>
 
-        {/* APPLE STORYTELLING */}
-        <section className="relative py-40 px-5 md:px-10 overflow-hidden">
+        {/* STORYTELLING */}
+        <section className="relative py-32 px-5 md:px-10 overflow-hidden">
 
           <motion.div
             initial={{
               opacity: 0,
-              y: 100,
-              filter: 'blur(10px)',
+              y: 50,
+              filter: 'blur(3px)',
             }}
             whileInView={{
               opacity: 1,
@@ -433,7 +425,7 @@ export default function App() {
               filter: 'blur(0px)',
             }}
             transition={{
-              duration: 1.5,
+              duration: 1,
             }}
             viewport={{ once: true }}
             className="max-w-6xl mx-auto text-center relative z-10"
@@ -476,16 +468,16 @@ export default function App() {
         </section>
 
         {/* CARDS */}
-        <section className="py-28 md:py-40 px-5 md:px-10">
+        <section className="py-24 md:py-32 px-5 md:px-10">
 
           <div className="max-w-7xl mx-auto">
 
             <motion.div
-              initial={{ opacity: 0, y: 80 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 0.9 }}
               viewport={{ once: true }}
-              className="text-center mb-28"
+              className="text-center mb-24"
             >
 
               <p className="uppercase tracking-[0.5em] text-pink-500 text-xs md:text-sm font-semibold mb-8">
@@ -504,7 +496,7 @@ export default function App() {
 
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-12">
+            <div className="grid md:grid-cols-3 gap-10">
 
               {[
                 {
@@ -531,24 +523,22 @@ export default function App() {
                   key={index}
                   initial={{
                     opacity: 0,
-                    y: 120,
-                    filter: 'blur(10px)',
+                    y: 60,
                   }}
                   whileInView={{
                     opacity: 1,
                     y: 0,
-                    filter: 'blur(0px)',
                   }}
                   whileHover={{
-                    y: -14,
-                    scale: 1.015,
+                    y: -6,
+                    scale: 1.01,
                   }}
                   transition={{
-                    duration: 1,
-                    delay: index * 0.2,
+                    duration: 0.8,
+                    delay: index * 0.15,
                   }}
                   viewport={{ once: true }}
-                  className="group bg-white/55 backdrop-blur-3xl border border-pink-100 rounded-[2.5rem] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.08)]"
+                  className="group bg-white/55 backdrop-blur-md border border-pink-100 rounded-[2.3rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.06)]"
                 >
 
                   <div className="overflow-hidden">
@@ -556,7 +546,8 @@ export default function App() {
                     <img
                       src={card.image}
                       alt={card.title}
-                      className="h-80 w-full object-cover group-hover:scale-[1.03] transition-transform duration-[1800ms]"
+                      loading="lazy"
+                      className="h-72 w-full object-cover group-hover:scale-[1.02] transition-transform duration-[1200ms]"
                     />
 
                   </div>
@@ -584,33 +575,28 @@ export default function App() {
         </section>
 
         {/* FINAL HERO */}
-        <section className="relative py-36 md:py-52 overflow-hidden">
+        <section className="relative py-32 md:py-48 overflow-hidden">
 
-          <motion.img
-            initial={{ scale: 1.15 }}
-            whileInView={{ scale: 1.03 }}
-            transition={{ duration: 2 }}
-            viewport={{ once: true }}
+          <img
             src={towel}
             alt="She"
+            loading="lazy"
             className="absolute inset-0 w-full h-full object-cover"
           />
 
-          <div className="absolute inset-0 bg-black/55 backdrop-blur-[2px]"></div>
+          <div className="absolute inset-0 bg-black/55"></div>
 
           <motion.div
             initial={{
               opacity: 0,
-              y: 120,
-              filter: 'blur(10px)',
+              y: 60,
             }}
             whileInView={{
               opacity: 1,
               y: 0,
-              filter: 'blur(0px)',
             }}
             transition={{
-              duration: 1.4,
+              duration: 1,
             }}
             viewport={{ once: true }}
             className="relative z-10 px-5 text-center text-white max-w-5xl mx-auto"
@@ -630,21 +616,21 @@ export default function App() {
 
             </p>
 
-<motion.button
-  whileHover={{
-    scale: 1.03,
-    y: -2,
-  }}
-  whileTap={{
-    scale: 0.97,
-  }}
-  onClick={() => setOpenModal(true)}
-  className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-10 py-5 rounded-2xl text-lg font-bold shadow-[0_20px_60px_rgba(236,72,153,0.35)]"
->
+            <motion.button
+              whileHover={{
+                scale: 1.02,
+                y: -1,
+              }}
+              whileTap={{
+                scale: 0.98,
+              }}
+              onClick={() => setOpenModal(true)}
+              className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-10 py-5 rounded-2xl text-lg font-bold shadow-[0_10px_40px_rgba(236,72,153,0.28)]"
+            >
 
-  Entrar na Lista VIP
+              Entrar na Lista VIP
 
-</motion.button>
+            </motion.button>
 
           </motion.div>
 
@@ -653,15 +639,15 @@ export default function App() {
         {/* FOOTER */}
         <footer className="relative bg-[#fff0f5] py-20 px-5 overflow-hidden">
 
-          <div className="absolute top-[-5rem] left-1/2 -translate-x-1/2 w-[25rem] h-[25rem] bg-pink-300/20 blur-[120px] rounded-full"></div>
+          <div className="absolute top-[-5rem] left-1/2 -translate-x-1/2 w-[20rem] h-[20rem] bg-pink-300/20 blur-[50px] rounded-full"></div>
 
           <div className="relative z-10 max-w-7xl mx-auto text-center">
 
             <motion.img
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.02 }}
               src={logo}
               alt="She"
-              className="w-56 md:w-72 mx-auto mb-8 opacity-95"
+              className="w-52 md:w-64 mx-auto mb-8 opacity-95"
             />
 
             <p className="text-zinc-500 text-lg mb-4">
@@ -687,18 +673,18 @@ export default function App() {
           rel="noopener noreferrer"
           className="fixed bottom-5 right-5 z-50"
           animate={{
-            y: [0, -8, 0],
+            y: [0, -4, 0],
           }}
           transition={{
-            duration: 2.5,
+            duration: 4,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
         >
 
-          <div className="absolute inset-0 bg-green-400 blur-2xl opacity-50 rounded-full"></div>
+          <div className="absolute inset-0 bg-green-400 blur-xl opacity-40 rounded-full"></div>
 
-          <div className="relative bg-gradient-to-br from-green-400 to-green-500 hover:scale-110 active:scale-95 transition-all duration-300 shadow-[0_20px_60px_rgba(34,197,94,0.5)] w-16 h-16 rounded-full flex items-center justify-center border border-white/20 backdrop-blur-xl">
+          <div className="relative bg-gradient-to-br from-green-400 to-green-500 hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_40px_rgba(34,197,94,0.35)] w-16 h-16 rounded-full flex items-center justify-center border border-white/20">
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -712,134 +698,132 @@ export default function App() {
 
         </motion.a>
 
-{/* MODAL VIP */}
-<AnimatePresence>
+        {/* MODAL */}
+        <AnimatePresence>
 
-  {openModal && (
+          {openModal && (
 
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[99999] bg-black/50 backdrop-blur-md flex items-center justify-center px-5"
-    >
-
-      <motion.div
-        initial={{
-          opacity: 0,
-          scale: 0.9,
-          y: 40,
-        }}
-        animate={{
-          opacity: 1,
-          scale: 1,
-          y: 0,
-        }}
-        exit={{
-          opacity: 0,
-          scale: 0.9,
-          y: 20,
-        }}
-        transition={{
-          duration: 0.35,
-        }}
-        className="relative w-full max-w-xl bg-white rounded-[2.5rem] p-8 md:p-12 shadow-[0_40px_120px_rgba(0,0,0,0.18)] overflow-hidden"
-      >
-
-        {/* GLOW */}
-        <div className="absolute top-[-5rem] right-[-5rem] w-[15rem] h-[15rem] bg-pink-300/30 blur-[100px] rounded-full"></div>
-
-        {/* CLOSE */}
-        <button
-          onClick={() => setOpenModal(false)}
-          className="absolute top-5 right-5 w-10 h-10 rounded-full bg-zinc-100 hover:bg-zinc-200 transition-all"
-        >
-
-          ✕
-
-        </button>
-
-        <div className="relative z-10">
-
-          <img
-            src={logo}
-            alt="She"
-            className="w-36 mx-auto mb-8"
-          />
-
-          <h2 className="text-4xl md:text-5xl font-black text-center leading-[0.95] mb-5">
-
-            Entre para
-            <br />
-
-            <span className="bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent">
-              a Lista VIP
-            </span>
-
-          </h2>
-
-          <p className="text-zinc-600 text-center text-lg mb-10 leading-relaxed">
-
-            Seja uma das primeiras pessoas a descobrir a nova era da She.
-
-          </p>
-
-          <form
-            action="https://formspree.io/f/xojbvqnj"
-            method="POST"
-            className="space-y-5"
-          >
-
-            <input
-              type="text"
-              name="nome"
-              placeholder="Seu nome"
-              required
-              className="w-full h-16 rounded-2xl border border-pink-100 bg-[#fffafc] px-6 text-lg outline-none focus:border-pink-400 transition-all"
-            />
-
-            <input
-              type="email"
-              name="email"
-              placeholder="Seu melhor e-mail"
-              required
-              className="w-full h-16 rounded-2xl border border-pink-100 bg-[#fffafc] px-6 text-lg outline-none focus:border-pink-400 transition-all"
-            />
-
-            <input
-              type="tel"
-              name="telefone"
-              placeholder="WhatsApp"
-              required
-              className="w-full h-16 rounded-2xl border border-pink-100 bg-[#fffafc] px-6 text-lg outline-none focus:border-pink-400 transition-all"
-            />
-
-            <motion.button
-              whileHover={{
-                scale: 1.02,
-              }}
-              whileTap={{
-                scale: 0.98,
-              }}
-              type="submit"
-              className="w-full h-16 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-500 text-white text-lg font-black shadow-[0_20px_60px_rgba(236,72,153,0.35)]"
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[99999] bg-black/40 backdrop-blur-sm flex items-center justify-center px-5"
             >
 
-              Entrar na Lista VIP
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  scale: 0.95,
+                  y: 20,
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.95,
+                  y: 10,
+                }}
+                transition={{
+                  duration: 0.25,
+                }}
+                className="relative w-full max-w-xl bg-white rounded-[2.2rem] p-8 md:p-12 shadow-[0_20px_80px_rgba(0,0,0,0.12)] overflow-hidden"
+              >
 
-            </motion.button>
+                <div className="absolute top-[-5rem] right-[-5rem] w-[12rem] h-[12rem] bg-pink-300/20 blur-[40px] rounded-full"></div>
 
-          </form>
+                <button
+                  onClick={() => setOpenModal(false)}
+                  className="absolute top-5 right-5 w-10 h-10 rounded-full bg-zinc-100 hover:bg-zinc-200 transition-all"
+                >
 
-        </div>
+                  ✕
 
-      </motion.div>
+                </button>
 
-    </motion.div>
+                <div className="relative z-10">
 
-  )}
+                  <img
+                    src={logo}
+                    alt="She"
+                    className="w-32 mx-auto mb-8"
+                  />
 
-</AnimatePresence>
+                  <h2 className="text-4xl md:text-5xl font-black text-center leading-[0.95] mb-5">
+
+                    Entre para
+                    <br />
+
+                    <span className="bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent">
+                      a Lista VIP
+                    </span>
+
+                  </h2>
+
+                  <p className="text-zinc-600 text-center text-lg mb-10 leading-relaxed">
+
+                    Seja uma das primeiras pessoas a descobrir a nova era da She.
+
+                  </p>
+
+                  <form
+                    action="https://formspree.io/f/xojbvqnj"
+                    method="POST"
+                    className="space-y-5"
+                  >
+
+                    <input
+                      type="text"
+                      name="nome"
+                      placeholder="Seu nome"
+                      required
+                      className="w-full h-16 rounded-2xl border border-pink-100 bg-[#fffafc] px-6 text-lg outline-none focus:border-pink-400 transition-all"
+                    />
+
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Seu melhor e-mail"
+                      required
+                      className="w-full h-16 rounded-2xl border border-pink-100 bg-[#fffafc] px-6 text-lg outline-none focus:border-pink-400 transition-all"
+                    />
+
+                    <input
+                      type="tel"
+                      name="telefone"
+                      placeholder="WhatsApp"
+                      required
+                      className="w-full h-16 rounded-2xl border border-pink-100 bg-[#fffafc] px-6 text-lg outline-none focus:border-pink-400 transition-all"
+                    />
+
+                    <motion.button
+                      whileHover={{
+                        scale: 1.01,
+                      }}
+                      whileTap={{
+                        scale: 0.98,
+                      }}
+                      type="submit"
+                      className="w-full h-16 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-500 text-white text-lg font-black shadow-[0_10px_40px_rgba(236,72,153,0.28)]"
+                    >
+
+                      Entrar na Lista VIP
+
+                    </motion.button>
+
+                  </form>
+
+                </div>
+
+              </motion.div>
+
+            </motion.div>
+
+          )}
+
+        </AnimatePresence>
 
       </div>
     </>
