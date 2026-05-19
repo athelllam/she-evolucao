@@ -14,38 +14,67 @@ export default function App() {
 const [loading, setLoading] = useState(true)
 const [openModal, setOpenModal] = useState(false)
 
-const targetDate = new Date('2026-06-30T00:00:00')
+const launchDate = new Date('2026-06-30T00:00:00').getTime()
 
-const calculateTimeLeft = () => {
-
-  const difference = targetDate - new Date()
-
-  let timeLeft = {}
-
-  if (difference > 0) {
-
-    timeLeft = {
-      dias: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      horas: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutos: Math.floor((difference / 1000 / 60) % 60),
-      segundos: Math.floor((difference / 1000) % 60),
-    }
-
-  }
-
-  return timeLeft
-
-}
-
-const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
+const [timeLeft, setTimeLeft] = useState({
+  dias: '00',
+  horas: '00',
+  minutos: '00',
+  segundos: '00',
+})
 
 useEffect(() => {
 
-  const timer = setInterval(() => {
-    setTimeLeft(calculateTimeLeft())
+  const interval = setInterval(() => {
+
+    const now = new Date().getTime()
+
+    const distance = launchDate - now
+
+    if (distance < 0) {
+
+      clearInterval(interval)
+
+      setTimeLeft({
+        dias: '00',
+        horas: '00',
+        minutos: '00',
+        segundos: '00',
+      })
+
+      return
+
+    }
+
+    setTimeLeft({
+      dias: String(
+        Math.floor(distance / (1000 * 60 * 60 * 24))
+      ).padStart(2, '0'),
+
+      horas: String(
+        Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) /
+          (1000 * 60 * 60)
+        )
+      ).padStart(2, '0'),
+
+      minutos: String(
+        Math.floor(
+          (distance % (1000 * 60 * 60)) /
+          (1000 * 60)
+        )
+      ).padStart(2, '0'),
+
+      segundos: String(
+        Math.floor(
+          (distance % (1000 * 60)) / 1000
+        )
+      ).padStart(2, '0'),
+    })
+
   }, 1000)
 
-  return () => clearInterval(timer)
+  return () => clearInterval(interval)
 
 }, [])
 
