@@ -12,6 +12,7 @@ import logo from './assets/she-logo.webp'
 export default function App() {
 
   const [loading, setLoading] = useState(true)
+  const [openModal, setOpenModal] = useState(false)
 
   /* APPLE SMOOTH SCROLL */
   useEffect(() => {
@@ -166,23 +167,21 @@ export default function App() {
                 className="w-32 md:w-40 opacity-90"
               />
 
-              <motion.a
-                whileHover={{
-                  scale: 1.04,
-                  y: -2,
-                }}
-                whileTap={{
-                  scale: 0.97,
-                }}
-                href="https://formspree.io/f/xojbvqnj"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 md:px-8 py-3 rounded-2xl text-sm md:text-base font-bold shadow-[0_10px_40px_rgba(236,72,153,0.35)]"
-              >
+<motion.button
+  whileHover={{
+    scale: 0.6,
+    y: -2,
+  }}
+  whileTap={{
+    scale: 0.5,
+  }}
+  onClick={() => setOpenModal(true)}
+  className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-10 py-5 rounded-2xl text-lg font-bold shadow-[0_20px_60px_rgba(236,72,153,0.35)]"
+>
 
-                Lista VIP
+  Lista VIP
 
-              </motion.a>
+</motion.button>
 
             </div>
 
@@ -272,23 +271,21 @@ export default function App() {
               </motion.p>
 
               {/* BUTTON */}
-              <motion.a
-                whileHover={{
-                  scale: 1.03,
-                  y: -2,
-                }}
-                whileTap={{
-                  scale: 0.97,
-                }}
-                href="https://formspree.io/f/xojbvqnj"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-gradient-to-r from-pink-500 to-rose-500 text-white px-10 py-5 rounded-2xl text-lg font-bold shadow-[0_20px_60px_rgba(236,72,153,0.35)] mb-14"
-              >
+<motion.button
+  whileHover={{
+    scale: 1.03,
+    y: -2,
+  }}
+  whileTap={{
+    scale: 0.97,
+  }}
+  onClick={() => setOpenModal(true)}
+  className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-10 py-5 rounded-2xl text-lg font-bold shadow-[0_20px_60px_rgba(236,72,153,0.35)]"
+>
 
-                Entrar na Lista VIP
+  Entrar na Lista VIP
 
-              </motion.a>
+</motion.button>
 
               {/* WAITLIST */}
               <motion.div
@@ -633,23 +630,21 @@ export default function App() {
 
             </p>
 
-            <motion.a
-              whileHover={{
-                scale: 1.03,
-                y: -2,
-              }}
-              whileTap={{
-                scale: 0.97,
-              }}
-              href="https://formspree.io/f/xojbvqnj"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-white text-pink-600 px-12 py-5 rounded-2xl text-lg font-black shadow-[0_20px_80px_rgba(255,255,255,0.2)]"
-            >
+<motion.button
+  whileHover={{
+    scale: 1.03,
+    y: -2,
+  }}
+  whileTap={{
+    scale: 0.97,
+  }}
+  onClick={() => setOpenModal(true)}
+  className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-10 py-5 rounded-2xl text-lg font-bold shadow-[0_20px_60px_rgba(236,72,153,0.35)]"
+>
 
-              Entrar para Lista VIP
+  Entrar na Lista VIP
 
-            </motion.a>
+</motion.button>
 
           </motion.div>
 
@@ -716,6 +711,135 @@ export default function App() {
           </div>
 
         </motion.a>
+
+{/* MODAL VIP */}
+<AnimatePresence>
+
+  {openModal && (
+
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[99999] bg-black/50 backdrop-blur-md flex items-center justify-center px-5"
+    >
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 0.9,
+          y: 40,
+        }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          y: 0,
+        }}
+        exit={{
+          opacity: 0,
+          scale: 0.9,
+          y: 20,
+        }}
+        transition={{
+          duration: 0.35,
+        }}
+        className="relative w-full max-w-xl bg-white rounded-[2.5rem] p-8 md:p-12 shadow-[0_40px_120px_rgba(0,0,0,0.18)] overflow-hidden"
+      >
+
+        {/* GLOW */}
+        <div className="absolute top-[-5rem] right-[-5rem] w-[15rem] h-[15rem] bg-pink-300/30 blur-[100px] rounded-full"></div>
+
+        {/* CLOSE */}
+        <button
+          onClick={() => setOpenModal(false)}
+          className="absolute top-5 right-5 w-10 h-10 rounded-full bg-zinc-100 hover:bg-zinc-200 transition-all"
+        >
+
+          ✕
+
+        </button>
+
+        <div className="relative z-10">
+
+          <img
+            src={logo}
+            alt="She"
+            className="w-36 mx-auto mb-8"
+          />
+
+          <h2 className="text-4xl md:text-5xl font-black text-center leading-[0.95] mb-5">
+
+            Entre para
+            <br />
+
+            <span className="bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent">
+              a Lista VIP
+            </span>
+
+          </h2>
+
+          <p className="text-zinc-600 text-center text-lg mb-10 leading-relaxed">
+
+            Seja uma das primeiras pessoas a descobrir a nova era da She.
+
+          </p>
+
+          <form
+            action="https://formspree.io/f/xojbvqnj"
+            method="POST"
+            className="space-y-5"
+          >
+
+            <input
+              type="text"
+              name="nome"
+              placeholder="Seu nome"
+              required
+              className="w-full h-16 rounded-2xl border border-pink-100 bg-[#fffafc] px-6 text-lg outline-none focus:border-pink-400 transition-all"
+            />
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Seu melhor e-mail"
+              required
+              className="w-full h-16 rounded-2xl border border-pink-100 bg-[#fffafc] px-6 text-lg outline-none focus:border-pink-400 transition-all"
+            />
+
+            <input
+              type="tel"
+              name="telefone"
+              placeholder="WhatsApp"
+              required
+              className="w-full h-16 rounded-2xl border border-pink-100 bg-[#fffafc] px-6 text-lg outline-none focus:border-pink-400 transition-all"
+            />
+
+            <motion.button
+              whileHover={{
+                scale: 1.02,
+              }}
+              whileTap={{
+                scale: 0.98,
+              }}
+              type="submit"
+              className="w-full h-16 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-500 text-white text-lg font-black shadow-[0_20px_60px_rgba(236,72,153,0.35)]"
+            >
+
+              Entrar na Lista VIP
+
+            </motion.button>
+
+          </form>
+
+        </div>
+
+      </motion.div>
+
+    </motion.div>
+
+  )}
+
+</AnimatePresence>
 
       </div>
     </>
