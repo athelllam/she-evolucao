@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Lenis from '@studio-freight/lenis'
 
-import hero from './assets/hero.jpg'
-import box from './assets/box.jpg'
-import towel from './assets/towel.JPG'
-import products from './assets/she-produtos-premium.jpg'
-import smoke from './assets/smoke.png'
-import logo from './assets/she-logo.png'
+import hero from './assets/hero.webp'
+import box from './assets/box.webp'
+import towel from './assets/towel.webp'
+import products from './assets/she-produtos-premium.webp'
+import smoke from './assets/smoke.webp'
+import logo from './assets/she-logo.webp'
 
 export default function App() {
 
