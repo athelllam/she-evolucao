@@ -174,7 +174,9 @@ export default function App() {
                 whileTap={{
                   scale: 0.97,
                 }}
-                href="#vip"
+                href="https://formspree.io/f/xojbvqnj"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 md:px-8 py-3 rounded-2xl text-sm md:text-base font-bold shadow-[0_10px_40px_rgba(236,72,153,0.35)]"
               >
 
@@ -278,7 +280,9 @@ export default function App() {
                 whileTap={{
                   scale: 0.97,
                 }}
-                href="#vip"
+                href="https://formspree.io/f/xojbvqnj"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-gradient-to-r from-pink-500 to-rose-500 text-white px-10 py-5 rounded-2xl text-lg font-bold shadow-[0_20px_60px_rgba(236,72,153,0.35)] mb-14"
               >
 
@@ -637,7 +641,9 @@ export default function App() {
               whileTap={{
                 scale: 0.97,
               }}
-              href="#vip"
+              href="https://formspree.io/f/xojbvqnj"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block bg-white text-pink-600 px-12 py-5 rounded-2xl text-lg font-black shadow-[0_20px_80px_rgba(255,255,255,0.2)]"
             >
 
