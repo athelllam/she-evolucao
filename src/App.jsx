@@ -14,7 +14,7 @@ export default function App() {
 const [loading, setLoading] = useState(true)
 const [openModal, setOpenModal] = useState(false)
 
-const launchDate = new Date('2026-08-23T00:00:00').getTime()
+const launchDate = new Date('2026-09-15T00:00:00').getTime()
 
 const [timeLeft, setTimeLeft] = useState({
   dias: '00',
