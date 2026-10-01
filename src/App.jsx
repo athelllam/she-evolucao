@@ -121,7 +121,7 @@ useEffect(() => {
             className="fixed inset-0 z-[9999] bg-[#fffafc] flex items-center justify-center overflow-hidden"
           >
 
-            <div className="absolute w-[28rem] h-[28rem] bg-pink-300/20 blur-[80px] rounded-full"></div>
+            <div className="absolute w-[28rem] h-[28rem] rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.20)_0%,rgba(244,114,182,0)_70%)]"></div>
 
             <motion.div
               initial={{ opacity: 0, scale: 0.92 }}
@@ -187,7 +187,7 @@ useEffect(() => {
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
-              className="absolute rounded-full bg-pink-300/30 blur-xl"
+              className="absolute rounded-full bg-pink-300/30"
               style={{
                 width: `${18 + index * 2}px`,
                 height: `${18 + index * 2}px`,
@@ -201,9 +201,9 @@ useEffect(() => {
         </div>
 
         {/* BACKGROUND */}
-        <div className="fixed top-[-10rem] left-[-10rem] w-[32rem] h-[32rem] bg-pink-300/15 blur-[80px] rounded-full pointer-events-none"></div>
+        <div className="fixed top-[-10rem] left-[-10rem] w-[32rem] h-[32rem] rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.15)_0%,rgba(244,114,182,0)_70%)] pointer-events-none"></div>
 
-        <div className="fixed bottom-[-10rem] right-[-10rem] w-[32rem] h-[32rem] bg-rose-300/15 blur-[80px] rounded-full pointer-events-none"></div>
+        <div className="fixed bottom-[-10rem] right-[-10rem] w-[32rem] h-[32rem] rounded-full bg-[radial-gradient(circle,rgba(251,113,133,0.15)_0%,rgba(251,113,133,0)_70%)] pointer-events-none"></div>
 
         {/* NAVBAR */}
         <motion.nav
@@ -213,7 +213,7 @@ useEffect(() => {
           className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[88%] max-w-5xl"
         >
 
-          <div className="bg-white/50 backdrop-blur-md border border-white/40 rounded-[2rem] px-5 md:px-8 py-4 shadow-[0_10px_40px_rgba(0,0,0,0.06)]">
+          <div className="bg-white/90 border border-white/40 rounded-[2rem] px-5 md:px-8 py-4 shadow-[0_10px_40px_rgba(0,0,0,0.06)]">
 
             <div className="flex items-center justify-between">
 
@@ -264,7 +264,7 @@ useEffect(() => {
               {/* BADGE */}
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="inline-flex items-center gap-2 bg-white/55 backdrop-blur-md border border-pink-100 px-5 py-2 rounded-full shadow-lg mb-10"
+                className="inline-flex items-center gap-2 bg-white/90 border border-pink-100 px-5 py-2 rounded-full shadow-lg mb-10"
               >
 
                 <div className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></div>
@@ -280,12 +280,10 @@ useEffect(() => {
                 initial={{
                   opacity: 0,
                   y: 50,
-                  filter: 'blur(4px)',
                 }}
                 whileInView={{
                   opacity: 1,
                   y: 0,
-                  filter: 'blur(0px)',
                 }}
                 transition={{
                   duration: 1.1,
@@ -308,12 +306,10 @@ useEffect(() => {
                 initial={{
                   opacity: 0,
                   y: 20,
-                  filter: 'blur(3px)',
                 }}
                 whileInView={{
                   opacity: 1,
                   y: 0,
-                  filter: 'blur(0px)',
                 }}
                 transition={{
                   delay: 0.2,
@@ -364,7 +360,7 @@ useEffect(() => {
                 className="mb-10"
               >
 
-                <div className="inline-flex items-center gap-3 bg-white/55 backdrop-blur-md border border-pink-100 px-5 py-4 rounded-2xl shadow-lg">
+                <div className="inline-flex items-center gap-3 bg-white/90 border border-pink-100 px-5 py-4 rounded-2xl shadow-lg">
 
                   <div className="flex -space-x-3">
 
@@ -408,7 +404,7 @@ useEffect(() => {
                       scale: 1.02,
                     }}
                     key={index}
-                    className="w-full aspect-square rounded-[1.6rem] bg-white/55 backdrop-blur-md border border-pink-100 shadow-xl flex flex-col items-center justify-center"
+                    className="w-full aspect-square rounded-[1.6rem] bg-white/90 border border-pink-100 shadow-xl flex flex-col items-center justify-center"
                   >
 
                     <div className="text-2xl md:text-4xl font-black text-pink-600">
@@ -446,7 +442,7 @@ useEffect(() => {
               className="relative"
             >
 
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-300 to-rose-300 blur-[60px] opacity-30 rounded-full"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(244,114,182,0.30)_0%,rgba(251,113,133,0.12)_45%,rgba(251,113,133,0)_72%)] rounded-full"></div>
 
               <motion.div
                 animate={{
@@ -482,12 +478,10 @@ useEffect(() => {
             initial={{
               opacity: 0,
               y: 50,
-              filter: 'blur(3px)',
             }}
             whileInView={{
               opacity: 1,
               y: 0,
-              filter: 'blur(0px)',
             }}
             transition={{
               duration: 1,
@@ -603,7 +597,7 @@ useEffect(() => {
                     delay: index * 0.15,
                   }}
                   viewport={{ once: true }}
-                  className="group bg-white/55 backdrop-blur-md border border-pink-100 rounded-[2.3rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.06)]"
+                  className="group bg-white/90 border border-pink-100 rounded-[2.3rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.06)]"
                 >
 
                   <div className="overflow-hidden">
@@ -704,7 +698,7 @@ useEffect(() => {
         {/* FOOTER */}
         <footer className="relative bg-[#fff0f5] py-20 px-5 overflow-hidden">
 
-          <div className="absolute top-[-5rem] left-1/2 -translate-x-1/2 w-[20rem] h-[20rem] bg-pink-300/20 blur-[50px] rounded-full"></div>
+          <div className="absolute top-[-5rem] left-1/2 -translate-x-1/2 w-[20rem] h-[20rem] rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.20)_0%,rgba(244,114,182,0)_70%)]"></div>
 
           <div className="relative z-10 max-w-7xl mx-auto text-center">
 
@@ -747,7 +741,7 @@ useEffect(() => {
           }}
         >
 
-          <div className="absolute inset-0 bg-green-400 blur-xl opacity-40 rounded-full"></div>
+          <div className="absolute inset-0 bg-green-400/20 opacity-40 rounded-full"></div>
 
           <div className="relative bg-gradient-to-br from-green-400 to-green-500 hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_40px_rgba(34,197,94,0.35)] w-16 h-16 rounded-full flex items-center justify-center border border-white/20">
 
@@ -772,7 +766,7 @@ useEffect(() => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[99999] bg-black/40 backdrop-blur-sm flex items-center justify-center px-5"
+              className="fixed inset-0 z-[99999] bg-black/55 flex items-center justify-center px-5"
             >
 
               <motion.div
@@ -797,7 +791,7 @@ useEffect(() => {
                 className="relative w-full max-w-xl bg-white rounded-[2.2rem] p-8 md:p-12 shadow-[0_20px_80px_rgba(0,0,0,0.12)] overflow-hidden"
               >
 
-                <div className="absolute top-[-5rem] right-[-5rem] w-[12rem] h-[12rem] bg-pink-300/20 blur-[40px] rounded-full"></div>
+                <div className="absolute top-[-5rem] right-[-5rem] w-[12rem] h-[12rem] rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.20)_0%,rgba(244,114,182,0)_70%)]"></div>
 
                 <button
                   onClick={() => setOpenModal(false)}
